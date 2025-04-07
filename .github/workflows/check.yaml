@@ -1,0 +1,28 @@
+name: Events Demo 1
+on:
+  pull_request:
+    types:
+      - opened
+    branches:
+      - main # main
+      - 'dev-*' # dev-new dev-this-is-new
+      - 'feat/**' # feat/new feat/new/button
+  workflow_dispatch:
+  push:
+    branches:
+      - main # main
+      - 'dev-*' # dev-new dev-this-is-new
+      - 'feat/**' # feat/new feat/new/button
+      # developer-1
+jobs: 
+  test:
+   runs-on: ubuntu-latest
+   steps: 
+     - name: check mvn version 
+       run: mvn --version 
+     - name: check npm version 
+       run: npm version 
+     - name: check java -version 
+       run: java -version 
+     - name: check python version 
+       run: python version
